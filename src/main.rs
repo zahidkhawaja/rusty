@@ -81,7 +81,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
 
     let json: OpenAIResponse = serde_json::from_reader(body.reader())?;
 
-    println!("{}", json.choices[0].text);
+    println!("{}", json.choices[0].text.split("\n").map(|s| s.trim()).filter(|s| s.len()>0).collect::<Vec<_>>().join("\n"));
 
     Ok(())
 }
