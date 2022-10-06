@@ -12,15 +12,17 @@ https://user-images.githubusercontent.com/21132214/193903587-1f6a51fe-b0d7-4f24-
 
 1. Clone this repo.
 
-2. Create an environment variable `OPENAI_KEY` with your API key from [OpenAI](https://openai.com/api/).
-
-3. Build the Rust program.
+2. Build the Rust program.
 
 ```bash
 cargo build --release
 ```
 
-4. Add the binary to your path. Under target/release.
+3. Add the binary to your path. Located under target/release.
+
+## OpenAI API key
+
+Create an environment variable `OPENAI_KEY` with your API key from [OpenAI](https://openai.com/api/).
 
 ## 🦀 Rust Docs
 

@@ -62,7 +62,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         model,
         prompt: format!("{} Text:{}. Command:", default_prompt, user_input),
         max_tokens: 64,
-        stop: stop,
+        stop,
     };
 
     let body = Body::from(serde_json::to_vec(&openai_request)?);
