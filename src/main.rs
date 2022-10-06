@@ -18,6 +18,7 @@ struct OpenAIRequest {
     model: String,
     prompt: String,
     max_tokens: u32,
+    stop: String,
 }
 
 #[tokio::main]
@@ -38,6 +39,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let uri = "https://api.openai.com/v1/completions";
 
     let model = String::from("text-davinci-002");
+    let stop = String::from("Text");
 
     let default_prompt =
         "Given text, return 1 bash command. Text:list contents of a directory. Command:ls";
@@ -60,8 +62,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
 
     let openai_request = OpenAIRequest {
         model: model,
-        prompt: format!("{}. Text:{}. Command:", default_prompt, user_input),
+        prompt: format!("{} Text:{}. Command:", default_prompt, user_input),
         max_tokens: 64,
+        stop: stop,
     };
 
     let body = Body::from(serde_json::to_vec(&openai_request)?);
