@@ -23,15 +23,13 @@ struct OpenAIRequest {
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     // Check for environment variable OPENAI_KEY
-    match env::var("OPENAI_KEY") {
-        Ok(_) => (),
+    let api_key = match env::var("OPENAI_KEY") {
+        Ok(key) => key,
         Err(_) => {
             println!("Error: please create an environment variable OPENAI_KEY");
             std::process::exit(1);
         }
-    }
-
-    let api_key = env::var("OPENAI_KEY").unwrap();
+    };
 
     let https = HttpsConnector::new();
     let client = Client::builder().build(https);
