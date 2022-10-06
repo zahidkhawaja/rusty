@@ -46,20 +46,20 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let mut arguments: Vec<String> = args().collect();
     arguments.remove(0);
 
-    if arguments.len() == 0 {
+    if arguments.is_empty() {
         println!("Welcome to Rusty! Enter an argument to get started.");
         std::process::exit(1);
     }
 
     for x in arguments {
-        user_input.push_str(" ");
+        user_input.push(' ');
         user_input.push_str(&x);
     }
 
     let auth_header_val = format!("Bearer {}", api_key);
 
     let openai_request = OpenAIRequest {
-        model: model,
+        model,
         prompt: format!("{}. Text:{}. Command:", default_prompt, user_input),
         max_tokens: 64,
     };
