@@ -24,15 +24,13 @@ struct OpenAIRequest {
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     // Check for environment variable OPENAI_KEY
-    match env::var("OPENAI_KEY") {
-        Ok(_) => (),
+    let api_key = match env::var("OPENAI_KEY") {
+        Ok(key) => key,
         Err(_) => {
             println!("Error: please create an environment variable OPENAI_KEY");
             std::process::exit(1);
         }
-    }
-
-    let api_key = env::var("OPENAI_KEY").unwrap();
+    };
 
     let https = HttpsConnector::new();
     let client = Client::builder().build(https);
@@ -48,20 +46,20 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let mut arguments: Vec<String> = args().collect();
     arguments.remove(0);
 
-    if arguments.len() == 0 {
+    if arguments.is_empty() {
         println!("Welcome to Rusty! Enter an argument to get started.");
         std::process::exit(1);
     }
 
     for x in arguments {
-        user_input.push_str(" ");
+        user_input.push(' ');
         user_input.push_str(&x);
     }
 
     let auth_header_val = format!("Bearer {}", api_key);
 
     let openai_request = OpenAIRequest {
-        model: model,
+        model,
         prompt: format!("{} Text:{}. Command:", default_prompt, user_input),
         max_tokens: 64,
         stop: stop,
