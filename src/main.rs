@@ -77,7 +77,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
 
     let body = hyper::body::aggregate(res).await?;
 
-    let json: OpenAIResponse = serde_json::from_reader(body.reader())?;
+    let json: OpenAIResponse = match serde_json::from_reader(body.reader()) {
+        Ok(response) => response,
+        Err(_) => {
+            println!("Error calling OpenAI. Check environment variable OPENAI_KEY");
+            std::process::exit(1);
+        }
+    };
 
     println!(
         "{}",
