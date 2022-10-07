@@ -12,13 +12,13 @@ https://user-images.githubusercontent.com/21132214/193903587-1f6a51fe-b0d7-4f24-
 
 1. Clone this repo.
 
-2. Build the Rust program.
+2. Build the [Rust](https://www.rust-lang.org/tools/install) program.
 
 ```bash
 cargo build --release
 ```
 
-3. Add the binary to your path. Located under target/release.
+3. Add the binary `rusty` to your path. It's located in the `rusty/target/release` directory.
 
 ## OpenAI API key
 
@@ -32,6 +32,4 @@ Create an environment variable `OPENAI_KEY` with your API key from [OpenAI](http
 
 - [OpenAI API](https://beta.openai.com/docs/introduction) from the creators of GPT-3.
 
-## Ping [Zahid](https://twitter.com/chillzaza_) if you need anything 🤘
-
-Stay tuned for updates.
+## Follow [Zahid](https://twitter.com/chillzaza_) for updates 🚀
