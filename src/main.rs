@@ -89,9 +89,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         "{}",
         json.choices[0]
             .text
-            .split("\n")
+            .split('\n')
             .map(|s| s.trim())
-            .filter(|s| s.len() > 0)
+            .filter(|s| !s.is_empty())
             .collect::<Vec<_>>()
             .join("\n")
     );
