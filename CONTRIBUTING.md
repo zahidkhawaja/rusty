@@ -22,12 +22,12 @@ The resulting binary can be found in `rusty/target/debug/` under the name `rusty
 
 ### Code Quality
 
-Rust has some excellent tools to make this super easy!
+Rust has some excellent tools to make it easy to maintain high quality code.
 
 #### Formatting Code with rustfmt
 
-Before you make a pull Request to the project, please run it through the `rustfmt` utility.
-This will format your code according to style guidelines and make things easier to maintain.
+Before you make a pull request to the project, please run it through the `rustfmt` utility.
+This will format your code according to style guidelines and make it easier to maintain.
 
 [rustfmt](https://github.com/rust-lang/rustfmt) has more information on how this works.
 To put it simply:
@@ -40,11 +40,11 @@ To put it simply:
     ```
     rustfmt src/path/to/your/file.rs
     ```
-   ... or format the entire project with
+   Or simply format the entire project with:
    ```
    cargo fmt
    ```
-   When run through `cargo` it will format all bin and lib files in the current crate.
+   When running through `cargo` it will format all bin and lib files in the current crate.
 
 For more context, feel free to check out the `rustfmt` project. [rustfmt](https://github.com/rust-lang/rustfmt)
 
@@ -52,7 +52,7 @@ For more context, feel free to check out the `rustfmt` project. [rustfmt](https:
 #### Finding Issues with Clippy
 
 Clippy is a code analyzer/linter to catch common mistakes and improve your Rust code!
-Just like formatting your code with `rustfmt`, running clippy regularly and before your pull Request will keep our code easy to maintain.
+Just like formatting your code with `rustfmt`, running clippy regularly and before your pull request will keep our code easy to maintain.
 
 To learn more, check out [rust-clippy](https://github.com/rust-lang/rust-clippy)
 
