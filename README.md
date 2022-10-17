@@ -30,6 +30,10 @@ Create an environment variable `OPENAI_KEY` with your API key from [OpenAI](http
 rusty <argument>
 ```
 
+## Contributing
+
+If you would like to contribute to Rusty, you can find more information in [CONTRIBUTING.md](https://github.com/zahidkhawaja/rusty/blob/main/CONTRIBUTING.md).
+
 ## 🦀 Rust Docs
 
 - [Learn Rust](https://www.rust-lang.org/learn) - learn about the Rust programming language.
