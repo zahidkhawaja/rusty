@@ -3,7 +3,7 @@
 If you're interested in contributing to Rusty, here are some useful tips!
 
 First of all, don't hesitate to reach out with any questions!
-This project is currently maintained by Zahid. Feel free to DM him on [Twitter]](https://twitter.com/chillzaza_) or shoot an email to [zahid@khawaja.ai]](mailto:zahid@khawaja.ai).
+This project is currently maintained by Zahid. Feel free to DM him on [Twitter](https://twitter.com/chillzaza_) or shoot an email to [zahid@khawaja.ai](mailto:zahid@khawaja.ai).
 
 ### Building Rusty
 
