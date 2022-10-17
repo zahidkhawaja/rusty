@@ -8,7 +8,7 @@ Feeling rusty on your bash skills? This might help! Built using Rust 🦀
 
 https://user-images.githubusercontent.com/21132214/193903587-1f6a51fe-b0d7-4f24-b95b-4bbd0e718ef2.mov
 
-## Getting Started
+## Installation
 
 1. Clone this repo.
 
@@ -23,6 +23,12 @@ cargo build --release
 ## OpenAI API key
 
 Create an environment variable `OPENAI_KEY` with your API key from [OpenAI](https://openai.com/api/).
+
+## Usage
+
+```bash
+rusty <argument>
+```
 
 ## 🦀 Rust Docs
 
