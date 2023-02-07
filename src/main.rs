@@ -36,7 +36,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let client = Client::builder().build(https);
     let uri = "https://api.openai.com/v1/completions";
 
-    let model = String::from("text-davinci-002");
+    let model = String::from("text-davinci-003");
     let stop = String::from("Text");
 
     let default_prompt =
