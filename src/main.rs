@@ -1,6 +1,7 @@
 use hyper::{body::Buf, header, Body, Client, Request};
 use hyper_tls::HttpsConnector;
 use serde_derive::{Deserialize, Serialize};
+use std::io::{stdin, stdout, Write};
 use std::{env, env::args};
 
 #[derive(Deserialize, Debug)]
@@ -47,13 +48,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     arguments.remove(0);
 
     if arguments.is_empty() {
-        println!("Welcome to Rusty! Enter an argument to get started.");
-        std::process::exit(1);
-    }
-
-    for x in arguments {
-        user_input.push(' ');
-        user_input.push_str(&x);
+        print!("Enter prompt: ");
+        let _ = stdout().flush();
+        stdin()
+            .read_line(&mut user_input)
+            .expect("Failed to read prompt.");
+    } else {
+        for x in arguments {
+            user_input.push(' ');
+            user_input.push_str(&x);
+        }
     }
 
     let auth_header_val = format!("Bearer {}", api_key);
