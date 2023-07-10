@@ -89,16 +89,15 @@ async fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
         }
     };
 
-    println!(
-        "{}",
-        json.choices[0]
-            .text
-            .split('\n')
-            .map(|s| s.trim())
-            .filter(|s| !s.is_empty())
-            .collect::<Vec<_>>()
-            .join("\n")
-    );
+    let bash = json.choices[0]
+        .text
+        .lines()
+        .map(str::trim)
+        .filter(|s| !s.is_empty())
+        .collect::<Vec<_>>()
+        .join("\n");
+
+    println!("{}", bash);
 
     Ok(())
 }
