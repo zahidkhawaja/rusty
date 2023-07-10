@@ -1,4 +1,4 @@
-# Rusty: GPT-3 Powered CLI Tool
+# Rusty: AI-Powered CLI Tool
 
 Convert natural language into executable commands directly from the terminal!
 
@@ -40,6 +40,6 @@ If you would like to contribute to Rusty, you can find more information in [CONT
 
 ## 🧠 OpenAI Docs
 
-- [OpenAI API](https://beta.openai.com/docs/introduction) from the creators of GPT-3.
+- [OpenAI API](https://beta.openai.com/docs/introduction) from the creators of GPT.
 
-## Follow [Zahid](https://twitter.com/chillzaza_) for updates 🚀
+### Follow [Zahid](https://twitter.com/chillzaza_) for updates 🚀
