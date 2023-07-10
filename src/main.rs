@@ -1,9 +1,9 @@
 use hyper::{body::Buf, header, Body, Client, Request};
 use hyper_tls::HttpsConnector;
 use serde_derive::{Deserialize, Serialize};
+use std::env;
 use std::error::Error;
 use std::io::{stdin, stdout, Write};
-use std::{env, env::args};
 
 #[derive(Deserialize, Debug)]
 struct OpenAIChoices {
@@ -44,23 +44,21 @@ async fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
 
     let default_prompt =
         "Given text, return 1 bash command. Text:list contents of a directory. Command:ls";
-    let mut user_input = String::new();
 
-    let mut arguments: Vec<String> = args().collect();
-    arguments.remove(0);
+    let user_input = env::args().skip(1).collect::<Vec<String>>().join(" ");
 
-    if arguments.is_empty() {
+    // If no arguments were provided, ask for user input
+    let user_input = if user_input.is_empty() {
         print!("Enter prompt: ");
         let _ = stdout().flush();
+        let mut input = String::new();
         stdin()
-            .read_line(&mut user_input)
+            .read_line(&mut input)
             .expect("Failed to read prompt.");
+        input
     } else {
-        for x in arguments {
-            user_input.push(' ');
-            user_input.push_str(&x);
-        }
-    }
+        user_input
+    };
 
     let auth_header_val = format!("Bearer {}", api_key);
 
