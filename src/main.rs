@@ -85,7 +85,7 @@ async fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
     let json: OpenAIResponse = match serde_json::from_reader(body.reader()) {
         Ok(response) => response,
         Err(_) => {
-            println!("Error calling OpenAI. Check environment variable OPENAI_API_KEY");
+            println!("Error: check environment variable OPENAI_API_KEY or try again later");
             std::process::exit(1);
         }
     };
