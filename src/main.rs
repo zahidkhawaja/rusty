@@ -36,7 +36,8 @@ async fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
 
     let https = HttpsConnector::new();
     let client = Client::builder().build(https);
-    let uri = "https://api.openai.com/v1/completions";
+
+    const URI: &str = "https://api.openai.com/v1/completions";
 
     let model = String::from("text-davinci-003");
     let stop = String::from("Text");
@@ -72,7 +73,7 @@ async fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
 
     let body = Body::from(serde_json::to_vec(&openai_request)?);
 
-    let req = Request::post(uri)
+    let req = Request::post(URI)
         .header(header::CONTENT_TYPE, "application/json")
         .header("Authorization", &auth_header_val)
         .body(body)
