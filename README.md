@@ -22,7 +22,7 @@ cargo build --release
 
 ## OpenAI API key
 
-Create an environment variable `OPENAI_KEY` with your API key from [OpenAI](https://openai.com/api/).
+Create an environment variable `OPENAI_API_KEY` with your API key from [OpenAI](https://openai.com/api/).
 
 ## Usage
 

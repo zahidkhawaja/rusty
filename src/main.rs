@@ -1,6 +1,7 @@
 use hyper::{body::Buf, header, Body, Client, Request};
 use hyper_tls::HttpsConnector;
 use serde_derive::{Deserialize, Serialize};
+use std::error::Error;
 use std::io::{stdin, stdout, Write};
 use std::{env, env::args};
 
@@ -23,12 +24,12 @@ struct OpenAIRequest {
 }
 
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    // Check for environment variable OPENAI_KEY
-    let api_key = match env::var("OPENAI_KEY") {
+async fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
+    // Check for environment variable OPENAI_API_KEY
+    let api_key = match env::var("OPENAI_API_KEY") {
         Ok(key) => key,
         Err(_) => {
-            println!("Error: please create an environment variable OPENAI_KEY");
+            println!("Error: missing environment variable OPENAI_API_KEY");
             std::process::exit(1);
         }
     };
@@ -84,7 +85,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let json: OpenAIResponse = match serde_json::from_reader(body.reader()) {
         Ok(response) => response,
         Err(_) => {
-            println!("Error calling OpenAI. Check environment variable OPENAI_KEY");
+            println!("Error calling OpenAI. Check environment variable OPENAI_API_KEY");
             std::process::exit(1);
         }
     };
